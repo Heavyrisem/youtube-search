@@ -1,8 +1,13 @@
 {
   "name": "@heavyrisem/youtube-search",
-  "version": "2.0.0",
-  "main": "index.js",
+  "version": "2.0.1",
+  "main": "dist/index.js",
+  "types": "index.ts",
   "license": "MIT",
+  "repository": "https://github.com/heavyrisem/youtube-search",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "scripts": {
     "start": "yarn build && node dist/index.js",
     "test": "jest",
