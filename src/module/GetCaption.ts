@@ -9,6 +9,7 @@ const getCaption = async (videoId: string, lang: string, format: CaptionForamt =
 
   if (captionTracks && captionTracks.length) {
     const track = captionTracks.find((t) => t.languageCode === lang);
+
     if (track) return axios.get<string>(`${track.baseUrl}&fmt=${format}`).then((res) => res.data);
 
     throw Error(`Could not find captions for ${lang}`);
