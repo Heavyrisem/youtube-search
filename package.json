@@ -1,6 +1,6 @@
 {
   "name": "@heavyrisem/youtube-search",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "axios": "^0.27.2",
-    "ytdl-core": "4.9.1",
-    "dotenv": "^16.0.1"
+    "dotenv": "^16.0.1",
+    "ytdl-core": "4.9.1"
   }
 }
