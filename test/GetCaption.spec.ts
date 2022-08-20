@@ -12,13 +12,13 @@ describe('GetCaption', () => {
   });
 
   it('Search fail if no caption language found', async () => {
-    await expect(getCaption('1R0AUyvNc4Y', 'invalid')).rejects.toThrow(
+    await expect(getCaption('mRD0-GxqHVo', 'invalid')).rejects.toThrow(
       'Could not find captions for invalid',
     );
   });
 
   it('Get Caption', async () => {
-    result = await getCaption('1R0AUyvNc4Y', 'en', 'vtt');
+    result = await getCaption('mRD0-GxqHVo', 'en', 'vtt');
     expect(result).not.toEqual('');
   });
 

@@ -231,6 +231,13 @@ export interface GetVideoInfoModel extends Record<string, any> {
   };
 }
 
+export interface MusicInfo {
+  title: string;
+  artists: string[];
+  album?: string;
+  ytMusicId?: string;
+}
+
 // export interface GetCaptionParams extends Record<string, any> {
 //   videoId: string;
 //   id?: string;

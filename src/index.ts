@@ -1,24 +1,41 @@
 import { createAxiosInstance } from '@module/axiosInstance';
 import getCaption from '@module/GetCaption';
+import getRelatedMusic from '@module/GetRelatedMusic';
 import getVideoInfo from '@module/GetVideoInfo';
 import searchCaption from '@module/SearchCaption';
 import searchYoutube from '@module/SearchYoutube';
 import { CaptionForamt } from '@module/types';
+import { AxiosInstance } from 'axios';
 import { GetVideoInfoParams, SearchCaptionParams, SearchYoutubeParams } from './models';
 
-const initalize = (API_KEY: string) => {
-  const axiosInstance = createAxiosInstance(API_KEY);
+export class YoutubeSearch {
+  axiosInstance: AxiosInstance;
 
-  return {
-    searchVideo: (keyWord: string, options?: SearchYoutubeParams) =>
-      searchYoutube(axiosInstance, keyWord, options),
-    searchCaption: (videoId: string, options?: SearchCaptionParams) =>
-      searchCaption(axiosInstance, videoId, options),
-    getCaption: (videoId: string, lang: string, format?: CaptionForamt) =>
-      getCaption(videoId, lang, format),
-    getVideoInfo: (videoId: string, options?: GetVideoInfoParams) =>
-      getVideoInfo(axiosInstance, videoId, options),
-  };
-};
+  constructor(readonly apiKey: string) {
+    this.axiosInstance = createAxiosInstance(apiKey);
+  }
 
-export default initalize;
+  getVideoInfo(videoId: string, options?: GetVideoInfoParams) {
+    return getVideoInfo(this.axiosInstance, videoId, options);
+  }
+
+  searchCaption(keyWord: string, options?: SearchCaptionParams) {
+    return searchCaption(this.axiosInstance, keyWord, options);
+  }
+
+  searchYoutube(keyWord: string, options?: SearchYoutubeParams) {
+    return searchYoutube(this.axiosInstance, keyWord, options);
+  }
+
+  getCaption(videoId: string, captionFormat: CaptionForamt) {
+    return getCaption(videoId, captionFormat);
+  }
+
+  getVideoDetails(videoId: string) {
+    return getVideoInfo(this.axiosInstance, videoId);
+  }
+
+  getRelatedMusic(videoId: string) {
+    return getRelatedMusic(videoId);
+  }
+}

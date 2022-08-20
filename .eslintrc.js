@@ -17,6 +17,7 @@ module.exports = {
   },
   ignorePatterns: ['dist', 'node_modules'],
   rules: {
+    'class-methods-use-this': 'off',
     'import/prefer-default-export': 'off',
     'prettier/prettier': 'error',
     'import/extensions': [
