@@ -27,8 +27,8 @@ export class YoutubeSearch {
     return searchYoutube(this.axiosInstance, keyWord, options);
   }
 
-  getCaption(videoId: string, captionFormat: CaptionForamt) {
-    return getCaption(videoId, captionFormat);
+  getCaption(videoId: string, lang: string, captionFormat: CaptionForamt) {
+    return getCaption(videoId, lang, captionFormat);
   }
 
   getVideoDetails(videoId: string) {
